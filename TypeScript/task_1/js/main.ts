@@ -11,7 +11,7 @@ interface Teacher {
   [propName: string]: any; // Index signature to allow additional properties
 }
 
-// Example usage
+// Example usage of Teacher interface
 const teacher3: Teacher = {
   firstName: 'John',
   fullTimeEmployee: false,
@@ -35,3 +35,22 @@ const teacher4: Teacher = {
 };
 
 console.log(teacher4);
+
+/**
+ * Directors interface that extends Teacher
+ * Adds required numberOfReports field
+ */
+interface Directors extends Teacher {
+  numberOfReports: number;
+}
+
+// Example usage of Directors interface
+const director1: Directors = {
+  firstName: 'John',
+  lastName: 'Doe',
+  location: 'London',
+  fullTimeEmployee: true,
+  numberOfReports: 17,
+};
+
+console.log(director1);
