@@ -54,3 +54,24 @@ const director1: Directors = {
 };
 
 console.log(director1);
+
+/**
+ * Interface for the printTeacher function
+ */
+interface printTeacherFunction {
+  (firstName: string, lastName: string): string;
+}
+
+/**
+ * Prints teacher name in format "F. LastName"
+ * @param firstName Teacher's first name
+ * @param lastName Teacher's last name
+ * @returns Formatted string with first initial and full last name
+ */
+const printTeacher: printTeacherFunction = (firstName, lastName) => {
+  return `${firstName.charAt(0)}. ${lastName}`;
+};
+
+// Example usage
+console.log(printTeacher("John", "Doe")); // Should print: J. Doe
+console.log(printTeacher("Jane", "Smith")); // Should print: J. Smith
