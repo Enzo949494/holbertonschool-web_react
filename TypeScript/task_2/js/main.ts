@@ -66,6 +66,22 @@ function executeWork(employee: Teacher | Director): string {
   }
 }
 
+// String literal type for Subjects
+type Subjects = 'Math' | 'History';
+
+// Function to teach class based on subject
+function teachClass(todayClass: Subjects): string {
+  if (todayClass === 'Math') {
+    return 'Teaching Math';
+  } else if (todayClass === 'History') {
+    return 'Teaching History';
+  } else {
+    // This case is technically unreachable due to the type definition
+    // but TypeScript may require it
+    return 'Invalid subject';
+  }
+}
+
 // Additional logs for debugging
 console.log("Creating employee with salary 200:");
 printEmployeeType(createEmployee(200));      // Teacher
@@ -86,3 +102,8 @@ console.log(createEmployee('$500'));
 console.log("\nExecuting work:");
 console.log(executeWork(createEmployee(200)));      // Getting to work
 console.log(executeWork(createEmployee(1000)));     // Getting to director tasks
+
+// Testing teachClass function
+console.log("\nTeaching classes:");
+console.log(teachClass('Math'));      // Teaching Math
+console.log(teachClass('History'));   // Teaching History
