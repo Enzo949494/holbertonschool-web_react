@@ -52,6 +52,20 @@ function printEmployeeType(employee: Teacher | Director): void {
   }
 }
 
+// Type predicate function
+function isDirector(employee: Teacher | Director): employee is Director {
+  return employee instanceof Director;
+}
+
+// Execute work based on employee type
+function executeWork(employee: Teacher | Director): string {
+  if (isDirector(employee)) {
+    return employee.workDirectorTasks();
+  } else {
+    return employee.workTeacherTasks();
+  }
+}
+
 // Additional logs for debugging
 console.log("Creating employee with salary 200:");
 printEmployeeType(createEmployee(200));      // Teacher
@@ -67,3 +81,8 @@ console.log("Created objects:");
 console.log(createEmployee(200));
 console.log(createEmployee(1000));
 console.log(createEmployee('$500'));
+
+// Testing executeWork function
+console.log("\nExecuting work:");
+console.log(executeWork(createEmployee(200)));      // Getting to work
+console.log(executeWork(createEmployee(1000)));     // Getting to director tasks
