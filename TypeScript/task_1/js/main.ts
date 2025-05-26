@@ -2,7 +2,7 @@
  * Teacher interface with required and optional fields
  * Uses index signature to allow for additional properties
  */
-interface Teacher {
+export interface Teacher {
   readonly firstName: string;
   readonly lastName: string;
   fullTimeEmployee: boolean;
@@ -68,9 +68,9 @@ interface printTeacherFunction {
  * @param lastName Teacher's last name
  * @returns Formatted string with first initial and full last name
  */
-const printTeacher: printTeacherFunction = (firstName, lastName) => {
+export function printTeacher(firstName: string, lastName: string): string {
   return `${firstName.charAt(0)}. ${lastName}`;
-};
+}
 
 // Example usage
 console.log(printTeacher("John", "Doe")); // Should print: J. Doe
@@ -79,14 +79,14 @@ console.log(printTeacher("Jane", "Smith")); // Should print: J. Smith
 /**
  * Interface for StudentClass constructor
  */
-interface StudentClassConstructor {
+export interface StudentConstructor {
   new(firstName: string, lastName: string): StudentClassInterface;
 }
 
 /**
  * Interface for StudentClass methods
  */
-interface StudentClassInterface {
+export interface StudentClassInterface {
   workOnHomework(): string;
   displayName(): string;
 }
@@ -94,9 +94,9 @@ interface StudentClassInterface {
 /**
  * Implementation of StudentClass
  */
-class StudentClass implements StudentClassInterface {
-  private firstName: string;
-  private lastName: string;
+export class StudentClass implements StudentClassInterface {
+  firstName: string;
+  lastName: string;
 
   constructor(firstName: string, lastName: string) {
     this.firstName = firstName;
@@ -104,7 +104,7 @@ class StudentClass implements StudentClassInterface {
   }
 
   workOnHomework(): string {
-    return "Currently working";
+    return 'Currently working';
   }
 
   displayName(): string {

@@ -1,5 +1,5 @@
 // Define the Student interface
-interface Student {
+export interface Student {
   firstName: string;
   lastName: string;
   age: number;
@@ -22,7 +22,7 @@ const student2: Student = {
 };
 
 // Store students in an array
-const studentsList: Array<Student> = [student1, student2];
+export const studentsList: Array<Student> = [student1, student2];
 
 // Render table function
 const renderTable = (students: Array<Student>): void => {
